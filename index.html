@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Sürpriz Sayfa</title>
+  <meta charset="UTF-8">
+  <title>Sürpriz</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: black;
+      overflow: hidden;
+      background-color: black;
     }
     #slider-container {
       position: fixed;
@@ -36,21 +36,7 @@
     }
     @keyframes slide {
       0% { transform: translateX(0); }
-      6.66%  { transform: translateX(-100vw); }
-      13.33% { transform: translateX(-200vw); }
-      20%    { transform: translateX(-300vw); }
-      26.66% { transform: translateX(-400vw); }
-      33.33% { transform: translateX(-500vw); }
-      40%    { transform: translateX(-600vw); }
-      46.66% { transform: translateX(-700vw); }
-      53.33% { transform: translateX(-800vw); }
-      60%    { transform: translateX(-900vw); }
-      66.66% { transform: translateX(-1000vw); }
-      73.33% { transform: translateX(-1100vw); }
-      80%    { transform: translateX(-1200vw); }
-      86.66% { transform: translateX(-1300vw); }
-      93.33% { transform: translateX(-1400vw); }
-      100%   { transform: translateX(0); }
+      100% { transform: translateX(-1400vw); }
     }
     #girisEkrani {
       z-index: 2;
@@ -60,8 +46,8 @@
       transform: translate(-50%, -50%);
       text-align: center;
       background-color: rgba(0,0,0,0.7);
-      padding: 40px;
-      border-radius: 12px;
+      padding: 30px;
+      border-radius: 10px;
       color: white;
     }
     input {
@@ -70,7 +56,6 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       margin-top: 10px;
-      width: 200px;
     }
     button {
       padding: 10px 20px;
@@ -89,10 +74,10 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
-      font-size: 32px;
+      font-size: 36px;
       text-shadow: 2px 2px 10px black;
-      text-align: center;
       z-index: 1;
+      text-align: center;
     }
   </style>
 </head>
@@ -101,49 +86,50 @@
   <!-- 🎵 Müzik -->
   <audio autoplay loop>
     <source src="Emre Altuğ - Neyleyim.mp3" type="audio/mp3">
-    Tarayıcınız bu ses öğesini desteklemiyor.
   </audio>
 
-  <!-- 🎞️ Kayan fotoğraflar -->
+  <!-- 🎞️ Arka plan kayar fotoğraflar -->
   <div id="slider-container">
     <div id="slider">
-      <div class="slide"><img src="foto1.jpg" alt=""></div>
-      <div class="slide"><img src="foto2.jpg" alt=""></div>
-      <div class="slide"><img src="foto3.jpg" alt=""></div>
-      <div class="slide"><img src="foto4.jpg" alt=""></div>
-      <div class="slide"><img src="foto5.jpg" alt=""></div>
-      <div class="slide"><img src="foto6.jpg" alt=""></div>
-      <div class="slide"><img src="foto7.jpg" alt=""></div>
-      <div class="slide"><img src="foto8.jpg" alt=""></div>
-      <div class="slide"><img src="foto9.jpg" alt=""></div>
-      <div class="slide"><img src="foto10.jpg" alt=""></div>
-      <div class="slide"><img src="foto11.jpg" alt=""></div>
-      <div class="slide"><img src="foto12.jpg" alt=""></div>
-      <div class="slide"><img src="foto13.jpg" alt=""></div>
-      <div class="slide"><img src="foto14.jpg" alt=""></div>
-      <div class="slide"><img src="foto15.jpg" alt=""></div>
+      <!-- 15 fotoğrafı sırayla göster -->
+      <div class="slide"><img src="foto1.jpg"></div>
+      <div class="slide"><img src="foto2.jpg"></div>
+      <div class="slide"><img src="foto3.jpg"></div>
+      <div class="slide"><img src="foto4.jpg"></div>
+      <div class="slide"><img src="foto5.jpg"></div>
+      <div class="slide"><img src="foto6.jpg"></div>
+      <div class="slide"><img src="foto7.jpg"></div>
+      <div class="slide"><img src="foto8.jpg"></div>
+      <div class="slide"><img src="foto9.jpg"></div>
+      <div class="slide"><img src="foto10.jpg"></div>
+      <div class="slide"><img src="foto11.jpg"></div>
+      <div class="slide"><img src="foto12.jpg"></div>
+      <div class="slide"><img src="foto13.jpg"></div>
+      <div class="slide"><img src="foto14.jpg"></div>
+      <div class="slide"><img src="foto15.jpg"></div>
     </div>
   </div>
 
-  <!-- 📅 Yıldönümü giriş ekranı -->
+  <!-- 💌 Giriş ekranı -->
   <div id="girisEkrani">
     <h2>Yıldönümümüz ne zaman? (gg.aa.yyyy)</h2>
-    <input type="text" id="answer" placeholder="">
+    <input type="text" id="answer" placeholder="örn: 02.04.2021">
     <br>
     <button onclick="checkAnswer()">Gönder</button>
-    <div id="wrong" style="display:none; color:#f99; margin-top:10px;">❌ Yanlış cevap, tekrar dene 🥲</div>
+    <div id="wrong" style="color: pink; margin-top: 10px; display:none;">
+      Yanlış cevap, bir daha düşün 😊
+    </div>
   </div>
 
-  <!-- 💌 Gizli içerik -->
+  <!-- 🎉 Mesaj -->
   <div id="icerik">
-    💖 Seni Çok Seviyorum! 💖<br>Bu sayfa sadece senin için hazırlandı.
+    <p>Seni çok seviyorum ❤️</p>
   </div>
 
   <script>
     function checkAnswer() {
       const input = document.getElementById("answer").value.trim();
-      const correct = "02.04.2021";
-      if (input === correct) {
+      if (input === "02.04.2021") {
         document.getElementById("girisEkrani").style.display = "none";
         document.getElementById("icerik").style.display = "block";
       } else {
